@@ -17,9 +17,11 @@ Script for conducting Jaccard Similarity calculations and plotting for long-read
 
 Contains:
 
-Python script - JaccardSimilarityHeatmap_triangle.py
+Python script - Run_jaccard.py
 
-Example input data - Input_Concordance_AllVariantCarriers_long.tsv
+Example input data - ExampleInput_Long.tsv
+
+Outdated files: OutdatedExampleInput_long.tsv and outdated_Jaccard.py
 
 # Coverage Statistics
 Script for conducting Kruskal-Wallis and Dunn's Test on Coverage Data from long-read RNA-sequencing protocol comparisons on kConfab Cell lines
@@ -27,3 +29,7 @@ Script for conducting Kruskal-Wallis and Dunn's Test on Coverage Data from long-
 Results are also presented within the file
 
 File name: CoverageStatistics.R
+
+
+# Overall Notes
+Script development was aided by Copilot and ChatGPT. 
