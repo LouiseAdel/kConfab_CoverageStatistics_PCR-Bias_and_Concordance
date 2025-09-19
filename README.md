@@ -6,11 +6,12 @@ This ensures values are bounded between 0–100% and directly comparable across 
 Filename: SpliceLauncherModification.py
 
 # PCR-Bias
-Script for conducting log2 Fold-change and Fishers Exact on levels of the isoform Δ10q from long-read RNA-sequencing protocols compared to direct RNA long-read sequensing for comparisons on kConfab Cell lines
+Script for conducting log2 Fold-change and Fishers Exact on levels of the isoform Δ10q from long-read RNA-sequencing protocols compared to direct RNA long-read sequensing and short-read RNA-sequencing for comparisons on kConfab Cell lines
 
 Within the script, printed results are available
 
 Filename: PCRBias_Statistics.R
+Input files: PCRBias_delta10q_Levels_controlsonly.xlsx (S15 and S19 only) and PCRBias_delta10q_Levels_controlsonly_All.xlsx (All 10 controls)
 
 # Concordance
 Script for conducting Jaccard Similarity calculations and plotting for long-read RNA-sequencing protocol comparisons on kConfab Cell lines.
