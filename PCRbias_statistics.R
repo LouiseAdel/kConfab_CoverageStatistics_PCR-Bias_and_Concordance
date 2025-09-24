@@ -1,6 +1,4 @@
 
-setwd("C:/Users/louis/Documents/Phd/ENIGMA/Udkast Artikel")
-
 # Libraries ----
 library(readxl)
 library(dplyr)
@@ -11,7 +9,7 @@ library(writexl)
 # -----------------------------
 # File1: replicate-level data (Ill-SR comparisons)
 # -----------------------------
-df <- read_excel("delta10q_levels_barplot.xlsx")
+df <- read_excel("PCRBias_delta10q_SR.xlsx")
 
 # Drop duplicate summary column
 df <- df %>% select(-Delta10q_Percentage)
@@ -90,7 +88,7 @@ wilcox_group_vs_sr <- bind_rows(
 # -----------------------------
 # File2: matched controls with read counts (Direct comparisons)
 # -----------------------------
-file2 <- read_excel("PCRBias_delta10q_Levels_Direct.xlsx")
+file2 <- read_excel("PCRBias_delta10q_Direct.xlsx")
 
 # Assign groups
 file2 <- file2 %>%
@@ -190,4 +188,5 @@ write_xlsx(
   ),
   "Delta10q_Comparisons.xlsx"
 )
+
 
