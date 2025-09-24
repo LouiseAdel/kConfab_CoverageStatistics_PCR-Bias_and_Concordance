@@ -11,8 +11,11 @@ Filename: SpliceLauncherModification.py
 # PCR-Bias
 Script for conducting log2 Fold-change, Wilcoxon and Fishers Exact on levels of the isoform Δ10q from long-read RNA-sequencing protocols compared to direct RNA long-read sequensing and short-read RNA-sequencing for comparisons on kConfab Cell lines.
 
-Filename: 
+Filename: PCRBias_Statistics.R
+
 Input files: 
+PCRBias_delta10q_Direct.xlsx 
+PCRBias_delta10q_SR.xlsx
 
 # Concordance
 Script for conducting Jaccard Similarity calculations and plotting for long-read RNA-sequencing protocol comparisons on kConfab Cell lines.
