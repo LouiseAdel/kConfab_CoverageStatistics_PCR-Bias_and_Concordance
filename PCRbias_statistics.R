@@ -1,4 +1,3 @@
-
 # Libraries ----
 library(readxl)
 library(dplyr)
@@ -13,7 +12,7 @@ df <- read_excel("PCRBias_delta10q_SR.xlsx")
 
 # Drop duplicate summary column
 df <- df %>% select(-Delta10q_Percentage)
-
+df
 # Reshape controls to long format
 controls_long <- df %>%
   filter(SampleID == "Controls") %>%
@@ -26,7 +25,8 @@ controls_long <- df %>%
 controls_long <- controls_long %>%
   mutate(Group = case_when(
     Protocol %in% c("ONT-Amp.-1", "ONT-Amp.-2") ~ "Amplicon",
-    Protocol %in% c("PacBio-WT", "ONT-WT-A", "ONT-WT-B", "ONT-Capture") ~ "Capture+WT",
+    Protocol %in% c("PacBio-WT", "ONT-WT-A", "ONT-WT-B") ~ "WT",
+    Protocol == "ONT-Capture" ~ "Capture",
     Protocol == "ONT-Direct" ~ "Direct",
     Protocol == "Ill-SR" ~ "Short-read"
   ))
@@ -81,7 +81,8 @@ compare_group_to_sr <- function(df, group_name) {
 
 wilcox_group_vs_sr <- bind_rows(
   compare_group_to_sr(controls_long, "Amplicon"),
-  compare_group_to_sr(controls_long, "Capture+WT"),
+  compare_group_to_sr(controls_long, "WT"),
+  compare_group_to_sr(controls_long, "Capture"),
   compare_group_to_sr(controls_long, "Direct")
 )
 
@@ -94,7 +95,8 @@ file2 <- read_excel("PCRBias_delta10q_Direct.xlsx")
 file2 <- file2 %>%
   mutate(Group = case_when(
     Protocol %in% c("ONT-Amp.-1", "ONT-Amp.-2") ~ "Amplicon",
-    Protocol %in% c("PacBio-WT", "ONT-WT-A", "ONT-WT-B", "ONT-Capture") ~ "Capture+WT",
+    Protocol %in% c("PacBio-WT", "ONT-WT-A", "ONT-WT-B") ~ "WT",
+    Protocol == "ONT-Capture" ~ "Capture",
     Protocol == "ONT-Direct" ~ "Direct",
     Protocol == "Ill-SR" ~ "Short-read"
   ))
@@ -161,7 +163,8 @@ compare_group_to_direct <- function(df, group_name) {
 
 fisher_group_vs_direct <- bind_rows(
   compare_group_to_direct(file2, "Amplicon"),
-  compare_group_to_direct(file2, "Capture+WT"),
+  compare_group_to_direct(file2, "WT"),
+  compare_group_to_direct(file2, "Capture"),
   compare_group_to_direct(file2, "Short-read")
 )
 
