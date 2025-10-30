@@ -35,4 +35,4 @@ File name: CoverageStatistics.R
 
 
 # Overall Notes
-Script development was aided by Copilot an
+Script development was conducted with support from Co-pilot and ChatGPT
